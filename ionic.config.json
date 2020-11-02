@@ -1,0 +1,7 @@
+{
+  "name": "analythium",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
