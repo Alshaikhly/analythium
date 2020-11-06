@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <!-- <ion-header :translucent="true">
       <ion-toolbar>
         <div id="toolbar">
           <ion-buttons slot="start">
@@ -12,14 +12,14 @@
         </div>
         </div>
       </ion-toolbar>
-    </ion-header>
+    </ion-header> -->
     
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">{{ folder }}</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> -->
     
       <div id="container">
         <strong class="capitalize">{{ folder }}</strong>
@@ -30,20 +30,15 @@
 </template>
 
 <script>
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonPage } from '@ionic/vue';
 import { useRoute } from 'vue-router';
 import { ref, computed, watch } from 'vue';
 
 export default {
   name: 'Folder',
   components: {
-    IonButtons,
     IonContent,
-    IonHeader,
-    IonMenuButton,
     IonPage,
-    IonTitle,
-    IonToolbar,
   },
   setup() {
     const route = useRoute();
@@ -64,13 +59,8 @@ ion-menu-button {
   color: var(--ion-color-primary);
 }
 
-#toolbar {
-  display: flex;
-  justify-content: space-between;
-}
-#title {
-  display: flex;
-}
+
+
 #container {
   text-align: center;
   position: absolute;

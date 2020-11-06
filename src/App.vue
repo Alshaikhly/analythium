@@ -1,5 +1,18 @@
 <template>
   <IonApp>
+      <ion-header :translucent="true">
+        <ion-toolbar>
+          <div id="toolbar">
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+          <div id="title" >
+            <strong>Logo</strong>
+            <ion-title>NHANES</ion-title>
+          </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
     <IonSplitPane content-id="main-content">
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
@@ -31,7 +44,7 @@
 </template>
 
 <script>
-import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
+import { IonButtons, IonMenuButton, IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, home, analytics } from 'ionicons/icons';
@@ -51,9 +64,12 @@ export default defineComponent({
     IonNote, 
     IonRouterOutlet, 
     IonSplitPane,
+    IonButtons,
+    IonMenuButton
   },
   setup() {
     const selectedIndex = ref(0);
+    
     const appPages = [
       {
         title: 'Home',
@@ -109,7 +125,15 @@ export default defineComponent({
       warningSharp,
       isSelected: (url) => url === route.path ? 'selected' : ''
     }
-  }
+    
+  },
+  // methods: {
+  //   title() {
+  //     for (page of this.appPages) {
+  //       if 
+  //     }
+  //   }
+  // }
 });
 </script>
 
@@ -232,5 +256,18 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+#title {
+  display: flex;
+}
+
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#inbox-list {
+  margin-top: 7%;
 }
 </style>
