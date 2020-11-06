@@ -4,8 +4,8 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <ion-list-header>NHANES Project</ion-list-header>
+            <ion-note>Navigation</ion-note>
   
             <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPages" :key="i">
               <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
@@ -15,14 +15,14 @@
             </ion-menu-toggle>
           </ion-list>
   
-          <ion-list id="labels-list">
+          <!-- <ion-list id="labels-list">
             <ion-list-header>Labels</ion-list-header>
   
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">
               <ion-icon slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
               <ion-label>{{ label }}</ion-label>
             </ion-item>
-          </ion-list>
+          </ion-list> -->
         </ion-content>
       </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
@@ -30,11 +30,11 @@
   </IonApp>
 </template>
 
-<script lang="ts">
+<script>
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp, home, analytics } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -56,43 +56,31 @@ export default defineComponent({
     const selectedIndex = ref(0);
     const appPages = [
       {
-        title: 'Inbox',
-        url: '/folder/Inbox',
-        iosIcon: mailOutline,
-        mdIcon: mailSharp
+        title: 'Home',
+        url: '/Home',
+        iosIcon: home,
+        mdIcon: home
       },
       {
-        title: 'Outbox',
-        url: '/folder/Outbox',
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp
+        title: 'Variable A',
+        url: '/folder/Variable A',
+        iosIcon: analytics,
+        mdIcon: analytics
       },
       {
-        title: 'Favorites',
-        url: '/folder/Favorites',
-        iosIcon: heartOutline,
-        mdIcon: heartSharp
+        title: 'Variable B',
+        url: '/folder/Variable B',
+        iosIcon: analytics,
+        mdIcon: analytics
       },
       {
-        title: 'Archived',
-        url: '/folder/Archived',
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp
+        title: 'Variable C',
+        url: '/folder/Variable C',
+        iosIcon: analytics,
+        mdIcon: analytics
       },
-      {
-        title: 'Trash',
-        url: '/folder/Trash',
-        iosIcon: trashOutline,
-        mdIcon: trashSharp
-      },
-      {
-        title: 'Spam',
-        url: '/folder/Spam',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
-      }
     ];
-    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+    // const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
     
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
@@ -104,7 +92,7 @@ export default defineComponent({
     return { 
       selectedIndex,
       appPages, 
-      labels,
+      // labels,
       archiveOutline, 
       archiveSharp, 
       bookmarkOutline, 
@@ -119,7 +107,7 @@ export default defineComponent({
       trashSharp, 
       warningOutline, 
       warningSharp,
-      isSelected: (url: string) => url === route.path ? 'selected' : ''
+      isSelected: (url) => url === route.path ? 'selected' : ''
     }
   }
 });

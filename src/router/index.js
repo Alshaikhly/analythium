@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
+import Home from '@/views/Home.vue'
 
-const routes: Array<RouteRecordRaw> = [
+
+const routes = [
   {
     path: '',
     redirect: '/folder/Inbox'
@@ -9,6 +10,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/folder/:id',
     component: () => import ('../views/Folder.vue')
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
   }
 ]
 

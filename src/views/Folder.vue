@@ -2,10 +2,15 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>{{ folder }}</ion-title>
+        <div id="toolbar">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+        <div id="title">
+          <strong>Logo</strong>
+          <ion-title>{{ folder }}</ion-title>
+        </div>
+        </div>
       </ion-toolbar>
     </ion-header>
     
@@ -24,7 +29,7 @@
   </ion-page>
 </template>
 
-<script lang="ts">
+<script>
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { useRoute } from 'vue-router';
 import { ref, computed, watch } from 'vue';
@@ -46,7 +51,7 @@ export default {
     const matchedFolder = computed(() => route.params.id);
     
     watch(matchedFolder, () => {
-      folder.value = matchedFolder.value as string;
+      folder.value = matchedFolder.value;
     })
     
     return { folder }
@@ -59,6 +64,13 @@ ion-menu-button {
   color: var(--ion-color-primary);
 }
 
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+#title {
+  display: flex;
+}
 #container {
   text-align: center;
   position: absolute;
