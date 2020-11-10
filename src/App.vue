@@ -78,20 +78,20 @@ export default defineComponent({
         mdIcon: home
       },
       {
-        title: 'Variable A',
-        url: '/folder/Variable A',
+        title: 'VariableA',
+        url: '/variableA',
         iosIcon: analytics,
         mdIcon: analytics
       },
       {
         title: 'Variable B',
-        url: '/folder/Variable B',
+        url: '/folder/VariableB',
         iosIcon: analytics,
         mdIcon: analytics
       },
       {
         title: 'Variable C',
-        url: '/folder/Variable C',
+        url: '/folder/VariableC',
         iosIcon: analytics,
         mdIcon: analytics
       },
